@@ -22,3 +22,12 @@ db.sequelize.sync()
   }
 });
 
+app.get("/buku", async (req, res) => {
+  try {
+    const buku = await db.Buku.findAll();
+    res.send(buku);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
